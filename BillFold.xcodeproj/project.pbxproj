@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37747C2D2470355D003BE056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C2C2470355D003BE056 /* AppDelegate.swift */; };
+		37747C2F2470355D003BE056 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C2E2470355D003BE056 /* SceneDelegate.swift */; };
+		37747C312470355D003BE056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C302470355D003BE056 /* ViewController.swift */; };
+		37747C342470355D003BE056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37747C322470355D003BE056 /* Main.storyboard */; };
+		37747C392470355E003BE056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37747C372470355E003BE056 /* LaunchScreen.storyboard */; };
+		37747C442470355E003BE056 /* BillFoldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C432470355E003BE056 /* BillFoldTests.swift */; };
+		37747C4F2470355F003BE056 /* BillFoldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C4E2470355F003BE056 /* BillFoldUITests.swift */; };
+		37747C5D247038D7003BE056 /* piggyBank.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5C247038D7003BE056 /* piggyBank.gif */; };
+		37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5E247039F6003BE056 /* piggyBank.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		37747C402470355E003BE056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37747C212470355D003BE056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37747C282470355D003BE056;
+			remoteInfo = BillFold;
+		};
+		37747C4B2470355F003BE056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37747C212470355D003BE056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37747C282470355D003BE056;
+			remoteInfo = BillFold;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		37747C292470355D003BE056 /* BillFold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillFold.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37747C2C2470355D003BE056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		37747C2E2470355D003BE056 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		37747C302470355D003BE056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37747C332470355D003BE056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		37747C382470355E003BE056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		37747C3A2470355E003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37747C3F2470355E003BE056 /* BillFoldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillFoldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37747C432470355E003BE056 /* BillFoldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillFoldTests.swift; sourceTree = "<group>"; };
+		37747C452470355E003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37747C4A2470355F003BE056 /* BillFoldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillFoldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37747C4E2470355F003BE056 /* BillFoldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillFoldUITests.swift; sourceTree = "<group>"; };
+		37747C502470355F003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37747C5C247038D7003BE056 /* piggyBank.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = piggyBank.gif; path = Documentation/piggyBank.gif; sourceTree = SOURCE_ROOT; };
+		37747C5E247039F6003BE056 /* piggyBank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = piggyBank.jpg; path = Documentation/piggyBank.jpg; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37747C262470355D003BE056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37747C3C2470355E003BE056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37747C472470355F003BE056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37747C202470355D003BE056 = {
+			isa = PBXGroup;
+			children = (
+				37747C2B2470355D003BE056 /* BillFold */,
+				37747C422470355E003BE056 /* BillFoldTests */,
+				37747C4D2470355F003BE056 /* BillFoldUITests */,
+				37747C2A2470355D003BE056 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37747C2A2470355D003BE056 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37747C292470355D003BE056 /* BillFold.app */,
+				37747C3F2470355E003BE056 /* BillFoldTests.xctest */,
+				37747C4A2470355F003BE056 /* BillFoldUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37747C2B2470355D003BE056 /* BillFold */ = {
+			isa = PBXGroup;
+			children = (
+				37747C60247039FC003BE056 /* Images */,
+				37747C2C2470355D003BE056 /* AppDelegate.swift */,
+				37747C2E2470355D003BE056 /* SceneDelegate.swift */,
+				37747C302470355D003BE056 /* ViewController.swift */,
+				37747C322470355D003BE056 /* Main.storyboard */,
+				37747C372470355E003BE056 /* LaunchScreen.storyboard */,
+				37747C3A2470355E003BE056 /* Info.plist */,
+			);
+			path = BillFold;
+			sourceTree = "<group>";
+		};
+		37747C422470355E003BE056 /* BillFoldTests */ = {
+			isa = PBXGroup;
+			children = (
+				37747C432470355E003BE056 /* BillFoldTests.swift */,
+				37747C452470355E003BE056 /* Info.plist */,
+			);
+			path = BillFoldTests;
+			sourceTree = "<group>";
+		};
+		37747C4D2470355F003BE056 /* BillFoldUITests */ = {
+			isa = PBXGroup;
+			children = (
+				37747C4E2470355F003BE056 /* BillFoldUITests.swift */,
+				37747C502470355F003BE056 /* Info.plist */,
+			);
+			path = BillFoldUITests;
+			sourceTree = "<group>";
+		};
+		37747C60247039FC003BE056 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				37747C5C247038D7003BE056 /* piggyBank.gif */,
+				37747C5E247039F6003BE056 /* piggyBank.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37747C282470355D003BE056 /* BillFold */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37747C532470355F003BE056 /* Build configuration list for PBXNativeTarget "BillFold" */;
+			buildPhases = (
+				37747C252470355D003BE056 /* Sources */,
+				37747C262470355D003BE056 /* Frameworks */,
+				37747C272470355D003BE056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BillFold;
+			productName = BillFold;
+			productReference = 37747C292470355D003BE056 /* BillFold.app */;
+			productType = "com.apple.product-type.application";
+		};
+		37747C3E2470355E003BE056 /* BillFoldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37747C562470355F003BE056 /* Build configuration list for PBXNativeTarget "BillFoldTests" */;
+			buildPhases = (
+				37747C3B2470355E003BE056 /* Sources */,
+				37747C3C2470355E003BE056 /* Frameworks */,
+				37747C3D2470355E003BE056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37747C412470355E003BE056 /* PBXTargetDependency */,
+			);
+			name = BillFoldTests;
+			productName = BillFoldTests;
+			productReference = 37747C3F2470355E003BE056 /* BillFoldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		37747C492470355F003BE056 /* BillFoldUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37747C592470355F003BE056 /* Build configuration list for PBXNativeTarget "BillFoldUITests" */;
+			buildPhases = (
+				37747C462470355F003BE056 /* Sources */,
+				37747C472470355F003BE056 /* Frameworks */,
+				37747C482470355F003BE056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37747C4C2470355F003BE056 /* PBXTargetDependency */,
+			);
+			name = BillFoldUITests;
+			productName = BillFoldUITests;
+			productReference = 37747C4A2470355F003BE056 /* BillFoldUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37747C212470355D003BE056 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Simon Schueller";
+				TargetAttributes = {
+					37747C282470355D003BE056 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					37747C3E2470355E003BE056 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 37747C282470355D003BE056;
+					};
+					37747C492470355F003BE056 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 37747C282470355D003BE056;
+					};
+				};
+			};
+			buildConfigurationList = 37747C242470355D003BE056 /* Build configuration list for PBXProject "BillFold" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 37747C202470355D003BE056;
+			productRefGroup = 37747C2A2470355D003BE056 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37747C282470355D003BE056 /* BillFold */,
+				37747C3E2470355E003BE056 /* BillFoldTests */,
+				37747C492470355F003BE056 /* BillFoldUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37747C272470355D003BE056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37747C392470355E003BE056 /* LaunchScreen.storyboard in Resources */,
+				37747C5D247038D7003BE056 /* piggyBank.gif in Resources */,
+				37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */,
+				37747C342470355D003BE056 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37747C3D2470355E003BE056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37747C482470355F003BE056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37747C252470355D003BE056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37747C312470355D003BE056 /* ViewController.swift in Sources */,
+				37747C2D2470355D003BE056 /* AppDelegate.swift in Sources */,
+				37747C2F2470355D003BE056 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37747C3B2470355E003BE056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37747C442470355E003BE056 /* BillFoldTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37747C462470355F003BE056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37747C4F2470355F003BE056 /* BillFoldUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		37747C412470355E003BE056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37747C282470355D003BE056 /* BillFold */;
+			targetProxy = 37747C402470355E003BE056 /* PBXContainerItemProxy */;
+		};
+		37747C4C2470355F003BE056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37747C282470355D003BE056 /* BillFold */;
+			targetProxy = 37747C4B2470355F003BE056 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		37747C322470355D003BE056 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37747C332470355D003BE056 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		37747C372470355E003BE056 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37747C382470355E003BE056 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		37747C512470355F003BE056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		37747C522470355F003BE056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37747C542470355F003BE056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 664JGWQ6V7;
+				INFOPLIST_FILE = BillFold/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFold;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		37747C552470355F003BE056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 664JGWQ6V7;
+				INFOPLIST_FILE = BillFold/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFold;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		37747C572470355F003BE056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 664JGWQ6V7;
+				INFOPLIST_FILE = BillFoldTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFoldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BillFold.app/BillFold";
+			};
+			name = Debug;
+		};
+		37747C582470355F003BE056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 664JGWQ6V7;
+				INFOPLIST_FILE = BillFoldTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFoldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BillFold.app/BillFold";
+			};
+			name = Release;
+		};
+		37747C5A2470355F003BE056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 664JGWQ6V7;
+				INFOPLIST_FILE = BillFoldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFoldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BillFold;
+			};
+			name = Debug;
+		};
+		37747C5B2470355F003BE056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 664JGWQ6V7;
+				INFOPLIST_FILE = BillFoldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFoldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BillFold;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37747C242470355D003BE056 /* Build configuration list for PBXProject "BillFold" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37747C512470355F003BE056 /* Debug */,
+				37747C522470355F003BE056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37747C532470355F003BE056 /* Build configuration list for PBXNativeTarget "BillFold" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37747C542470355F003BE056 /* Debug */,
+				37747C552470355F003BE056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37747C562470355F003BE056 /* Build configuration list for PBXNativeTarget "BillFoldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37747C572470355F003BE056 /* Debug */,
+				37747C582470355F003BE056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37747C592470355F003BE056 /* Build configuration list for PBXNativeTarget "BillFoldUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37747C5A2470355F003BE056 /* Debug */,
+				37747C5B2470355F003BE056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37747C212470355D003BE056 /* Project object */;
+}
