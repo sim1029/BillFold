@@ -8,32 +8,67 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var moneyLabel: UILabel!
     
-    var money = "$0.00"
+    var amt: Int = 0
+    var total: Double = 0.00
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        moneyLabel.text = money
+        moneyTextField.delegate = self
+        moneyTextField.placeholder = updateAmount()
+        moneyTextField.keyboardType = UIKeyboardType.numberPad
+        moneyLabel.text = "$0.00"
     }
     
     @IBAction func addMoney(_ sender: UIButton) {
         if let money = moneyTextField.text{
-            moneyLabel.text = "$" + money
+            let index = money.index(money.startIndex, offsetBy: 1)
+            total += Double(money.suffix(from: index))!
+            moneyLabel.text = formatMoneyLabel(total)
         }
         moneyTextField.text = ""
+        amt = 0
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    {
-      let allowedCharacters = CharacterSet.decimalDigits
-      let characterSet = CharacterSet(charactersIn: string)
-      return allowedCharacters.isSuperset(of: characterSet)
+    @IBAction func subtractMoney(_ sender: UIButton) {
+        if let money = moneyTextField.text{
+            let index = money.index(money.startIndex, offsetBy: 1)
+            total -= Double(money.suffix(from: index))!
+            moneyLabel.text = formatMoneyLabel(total)
+        }
+        moneyTextField.text = ""
+        amt = 0
     }
-
+    
+    func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let digit = Int(string) {
+            amt = amt * 10 + digit
+            moneyTextField.text = updateAmount()
+        }
+        if string == "" {
+            amt = amt/10
+            moneyTextField.text = updateAmount()
+        }
+        return false
+    }
+    
+    func updateAmount() -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        let amount = Double(amt/100) + Double(amt%100)/100
+        return formatter.string(from: NSNumber(value: amount))
+    }
+    
+    func formatMoneyLabel(_ money: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        return formatter.string(from: NSNumber(value: money))
+    }
 }
 
