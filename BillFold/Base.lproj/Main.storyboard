@@ -54,6 +54,9 @@
                                 <rect key="frame" x="63" y="290" width="297" height="278"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="piggyBank.gif"/>
+                                <connections>
+                                    <action selector="resetBalance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fjK-TJ-tgJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -25,6 +25,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         moneyLabel.text = "$0.00"
     }
     
+    @IBAction func resetBalance(_ sender: UIButton) {
+        total = 0
+        moneyLabel.text = formatMoneyLabel(total)
+    }
+    
     @IBAction func addMoney(_ sender: UIButton) {
         if let money = moneyTextField.text{
             let index = money.index(money.startIndex, offsetBy: 1)
