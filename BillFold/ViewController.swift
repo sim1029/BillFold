@@ -75,5 +75,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         formatter.numberStyle = NumberFormatter.Style.currency
         return formatter.string(from: NSNumber(value: money))
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
