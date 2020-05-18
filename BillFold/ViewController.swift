@@ -33,7 +33,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addMoney(_ sender: UIButton) {
         if let money = moneyTextField.text{
             let index = money.index(money.startIndex, offsetBy: 1)
-            total += Double(money.suffix(from: index))!
+            if let currentMoney = Double(money.suffix(from: index)){
+                total += currentMoney
+            }
             moneyLabel.text = formatMoneyLabel(total)
         }
         moneyTextField.text = ""
@@ -43,7 +45,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func subtractMoney(_ sender: UIButton) {
         if let money = moneyTextField.text{
             let index = money.index(money.startIndex, offsetBy: 1)
-            total -= Double(money.suffix(from: index))!
+            if let currentMoney = Double(money.suffix(from: index)){
+                total -= currentMoney
+            }
             moneyLabel.text = formatMoneyLabel(total)
         }
         moneyTextField.text = ""
