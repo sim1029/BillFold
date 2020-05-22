@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		37747C2D2470355D003BE056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C2C2470355D003BE056 /* AppDelegate.swift */; };
 		37747C2F2470355D003BE056 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C2E2470355D003BE056 /* SceneDelegate.swift */; };
-		37747C312470355D003BE056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C302470355D003BE056 /* ViewController.swift */; };
+		37747C312470355D003BE056 /* CashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C302470355D003BE056 /* CashViewController.swift */; };
 		37747C342470355D003BE056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37747C322470355D003BE056 /* Main.storyboard */; };
 		37747C392470355E003BE056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37747C372470355E003BE056 /* LaunchScreen.storyboard */; };
 		37747C442470355E003BE056 /* BillFoldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C432470355E003BE056 /* BillFoldTests.swift */; };
 		37747C4F2470355F003BE056 /* BillFoldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C4E2470355F003BE056 /* BillFoldUITests.swift */; };
 		37747C5D247038D7003BE056 /* piggyBank.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5C247038D7003BE056 /* piggyBank.gif */; };
 		37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5E247039F6003BE056 /* piggyBank.jpg */; };
+		37FC8B1324783C680009DDCD /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37FC8B1124783C680009DDCD /* DataModel.xcdatamodeld */; };
+		37FC8B15247840080009DDCD /* FoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC8B14247840080009DDCD /* FoldsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		372C29742473143F0065476D /* BillFold.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillFold.entitlements; sourceTree = "<group>"; };
 		37747C292470355D003BE056 /* BillFold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillFold.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37747C2C2470355D003BE056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37747C2E2470355D003BE056 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37747C302470355D003BE056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37747C302470355D003BE056 /* CashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashViewController.swift; sourceTree = "<group>"; };
 		37747C332470355D003BE056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37747C382470355E003BE056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37747C3A2470355E003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +54,8 @@
 		37747C502470355F003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37747C5C247038D7003BE056 /* piggyBank.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = piggyBank.gif; path = Documentation/piggyBank.gif; sourceTree = SOURCE_ROOT; };
 		37747C5E247039F6003BE056 /* piggyBank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = piggyBank.jpg; path = Documentation/piggyBank.jpg; sourceTree = SOURCE_ROOT; };
+		37FC8B1224783C680009DDCD /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		37FC8B14247840080009DDCD /* FoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +106,13 @@
 		37747C2B2470355D003BE056 /* BillFold */ = {
 			isa = PBXGroup;
 			children = (
+				372C29742473143F0065476D /* BillFold.entitlements */,
 				37747C60247039FC003BE056 /* Images */,
 				37747C2C2470355D003BE056 /* AppDelegate.swift */,
 				37747C2E2470355D003BE056 /* SceneDelegate.swift */,
-				37747C302470355D003BE056 /* ViewController.swift */,
-				37747C322470355D003BE056 /* Main.storyboard */,
-				37747C372470355E003BE056 /* LaunchScreen.storyboard */,
+				37FC8B1024783C0E0009DDCD /* Model */,
+				37FC8B0F24783BEE0009DDCD /* Views */,
+				37FC8B0E24783BD80009DDCD /* Controllers */,
 				37747C3A2470355E003BE056 /* Info.plist */,
 			);
 			path = BillFold;
@@ -137,6 +143,32 @@
 				37747C5E247039F6003BE056 /* piggyBank.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		37FC8B0E24783BD80009DDCD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				37747C302470355D003BE056 /* CashViewController.swift */,
+				37FC8B14247840080009DDCD /* FoldsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		37FC8B0F24783BEE0009DDCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				37747C322470355D003BE056 /* Main.storyboard */,
+				37747C372470355E003BE056 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		37FC8B1024783C0E0009DDCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37FC8B1124783C680009DDCD /* DataModel.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37747C312470355D003BE056 /* ViewController.swift in Sources */,
+				37747C312470355D003BE056 /* CashViewController.swift in Sources */,
+				37FC8B1324783C680009DDCD /* DataModel.xcdatamodeld in Sources */,
 				37747C2D2470355D003BE056 /* AppDelegate.swift in Sources */,
+				37FC8B15247840080009DDCD /* FoldsViewController.swift in Sources */,
 				37747C2F2470355D003BE056 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +479,7 @@
 		37747C542470355F003BE056 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BillFold/BillFold.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 664JGWQ6V7;
 				INFOPLIST_FILE = BillFold/Info.plist;
@@ -455,6 +489,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,7 +498,7 @@
 		37747C552470355F003BE056 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BillFold/BillFold.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 664JGWQ6V7;
 				INFOPLIST_FILE = BillFold/Info.plist;
@@ -473,6 +508,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SPS.BillFold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -602,6 +638,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37FC8B1124783C680009DDCD /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37FC8B1224783C680009DDCD /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 37FC8B1224783C680009DDCD /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 37747C212470355D003BE056 /* Project object */;
 }

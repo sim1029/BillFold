@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E2269" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cash" representedClassName="Cash" syncable="YES" codeGenerationType="class">
+        <attribute name="total" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="parentFold" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fold" inverseName="cash" inverseEntity="Fold"/>
+    </entity>
+    <entity name="Fold" representedClassName="Fold" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="cash" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cash" inverseName="parentFold" inverseEntity="Cash"/>
+    </entity>
+    <elements>
+        <element name="Fold" positionX="-229.015625" positionY="-8.0078125" width="128" height="73"/>
+        <element name="Cash" positionX="-54" positionY="-9" width="128" height="73"/>
+    </elements>
+</model>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class CashViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: -Outlets
     @IBOutlet weak var moneyTextField: UITextField!
@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         moneyTextField.delegate = self
         moneyTextField.placeholder = updateAmount()
+        overrideUserInterfaceStyle = .light
         moneyTextField.keyboardType = UIKeyboardType.numberPad
         moneyLabel.text = "$0.00"
         //Listen for Keyboard events
@@ -87,29 +88,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addMoney(_ sender: UIButton) {
-        self.view.endEditing(true)
-        if let money = moneyTextField.text{
-            let index = money.index(money.startIndex, offsetBy: 1)
-            if let currentMoney = Double(money.suffix(from: index)){
-                total += currentMoney
+        if moneyTextField.text != "" {
+            self.view.endEditing(true)
+            if let money = moneyTextField.text{
+                let index = money.index(money.startIndex, offsetBy: 1)
+                if let currentMoney = Double(money.suffix(from: index)){
+                    total += currentMoney
+                }
+                moneyLabel.text = formatMoneyLabel(total)
             }
-            moneyLabel.text = formatMoneyLabel(total)
+            moneyTextField.text = ""
+            amt = 0
         }
-        moneyTextField.text = ""
-        amt = 0
     }
     
     @IBAction func subtractMoney(_ sender: UIButton) {
-        self.view.endEditing(true)
-        if let money = moneyTextField.text{
-            let index = money.index(money.startIndex, offsetBy: 1)
-            if let currentMoney = Double(money.suffix(from: index)){
-                total -= currentMoney
+        if moneyTextField.text != "" {
+            self.view.endEditing(true)
+            if let money = moneyTextField.text{
+                let index = money.index(money.startIndex, offsetBy: 1)
+                if let currentMoney = Double(money.suffix(from: index)){
+                    total -= currentMoney
+                }
+                moneyLabel.text = formatMoneyLabel(total)
             }
-            moneyLabel.text = formatMoneyLabel(total)
+            moneyTextField.text = ""
+            amt = 0
         }
-        moneyTextField.text = ""
-        amt = 0
     }
     
 }
