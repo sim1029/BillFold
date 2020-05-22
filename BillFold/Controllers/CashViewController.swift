@@ -10,6 +10,17 @@ import UIKit
 
 class CashViewController: UIViewController, UITextFieldDelegate {
 
+//    var cash = Cash()
+//    cash.total = 0.0
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//
+//    let newCash = Cash(context: self.context)
+//    newCash.total =
+//    newItem.done = false
+//    newItem.parentCategory = self.selectedCategory
+//    self.itemArray.append(newItem)
+//    self.saveItems()
+    
     //MARK: -Outlets
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var moneyLabel: UILabel!
@@ -17,6 +28,11 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     //MARK: -Variables
     var amt: Int = 0
     var total: Double = 0.00
+//    var selectedFold : Fold? {
+//        didSet{
+//            loadItems()
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +41,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         moneyTextField.placeholder = updateAmount()
         overrideUserInterfaceStyle = .light
         moneyTextField.keyboardType = UIKeyboardType.numberPad
-        moneyLabel.text = "$0.00"
+//        moneyLabel.text = "$0.00"
         //Listen for Keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -116,6 +132,33 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             amt = 0
         }
     }
+    
+//    func saveItems(){
+//        do{
+//            try context.save()
+//        }catch{
+//            print("error saving context \(error)")
+//        }
+//        moneylabel.text = formatMoneyLabel(<#T##money: Double##Double#>)
+//    }
+//
+//    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
+//
+//        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+//
+//        if let additionalPredicate = predicate {
+//            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+//        }else{
+//            request.predicate = categoryPredicate
+//        }
+//
+//        do{
+//            itemArray = try context.fetch(request)
+//        }catch{
+//            print("Error fetching data from context \(error)")
+//        }
+//        tableView.reloadData()
+//    }
     
 }
 

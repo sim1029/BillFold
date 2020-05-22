@@ -16,16 +16,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3PC-02-ars">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="w17-NU-l7r">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3I-Lp-JLn" userLabel="Top View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="272"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="257.33333333333331"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HR-Md-m5z">
-                                                        <rect key="frame" x="124.66666666666669" y="100.33333333333334" width="165" height="71.666666666666657"/>
+                                                        <rect key="frame" x="124.66666666666669" y="93" width="165" height="71.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
                                                         <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -37,10 +37,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahP-SE-Xdv" userLabel="Middle View">
-                                                <rect key="frame" x="0.0" y="273" width="414" height="272"/>
+                                                <rect key="frame" x="0.0" y="258.33333333333337" width="414" height="257.33333333333337"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW2-wa-ICA">
-                                                        <rect key="frame" x="87.333333333333329" y="36" width="239.33333333333337" height="200"/>
+                                                        <rect key="frame" x="87.333333333333329" y="28.666666666666686" width="239.33333333333337" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="CGK-q4-dtl"/>
                                                             <constraint firstAttribute="width" constant="239.5" id="Kk3-Ju-5dO"/>
@@ -57,10 +57,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acr-AP-RTC" userLabel="Bottom View">
-                                                <rect key="frame" x="0.0" y="546" width="414" height="272"/>
+                                                <rect key="frame" x="0.0" y="516.66666666666663" width="414" height="257.33333333333337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mh9-Or-qqa">
-                                                        <rect key="frame" x="119.66666666666669" y="63.666666666666629" width="175" height="145"/>
+                                                        <rect key="frame" x="119.66666666666669" y="56.333333333333371" width="175" height="145"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xk-A0-h1v">
                                                                 <rect key="frame" x="62.333333333333329" y="0.0" width="50" height="50"/>
@@ -127,6 +127,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UCb-Ca-zvA"/>
                     <connections>
                         <outlet property="moneyLabel" destination="5HR-Md-m5z" id="1ei-4o-ICX"/>
                         <outlet property="moneyTextField" destination="HsQ-fC-kZA" id="m0q-kC-wAi"/>
@@ -136,16 +137,16 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="114.50892857142857"/>
         </scene>
-        <!--My Folds-->
+        <!--FoldsViewController-->
         <scene sceneID="USu-b2-u0M">
             <objects>
-                <tableViewController id="v6A-x9-o4L" sceneMemberID="viewController">
+                <tableViewController title="FoldsViewController" id="v6A-x9-o4L" customClass="FoldsViewController" customModule="BillFold" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wbr-VZ-3AU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kyo-wG-RAx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoldCell" id="kyo-wG-RAx">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kyo-wG-RAx" id="Mqt-TH-7Px">
@@ -162,8 +163,14 @@
                     <navigationItem key="navigationItem" title="My Folds" id="kF0-LQ-Tgp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9zl-Ke-Woh">
                             <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addFold:" destination="v6A-x9-o4L" id="4yj-Bi-kbh"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToCash" id="wy7-0o-o8P"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kx-0A-uPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
