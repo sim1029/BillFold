@@ -17,6 +17,7 @@ class FoldsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCategories()
     }
     
     //MARK: - TableView Datasource Methods
@@ -38,7 +39,7 @@ class FoldsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! CashViewController
         if let indexPath = tableView.indexPathForSelectedRow{
-//            destinationVC.selectedFold = folds[indexPath.row]
+            destinationVC.selectedFold = folds[indexPath.row]
         }
     }
     
@@ -62,12 +63,32 @@ class FoldsViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
+        // Create Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Fold")
+        let fetchRequest1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Cash")
+
+        // Create Batch Delete Request
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
+
+        do {
+            try context.execute(batchDeleteRequest)
+            try context.execute(batchDeleteRequest1)
+            tableView.reloadData()
+        } catch {
+            // Error Handling
+        }
+    }
     //MARK: - Add New Folds
     @IBAction func addFold(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add New Fold", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             let newFold = Fold(context: self.context)
+            let newCash = Cash(context: self.context)
+            newCash.total = 0.0
             newFold.name = self.textField.text!
+            newCash.parentFold = newFold
             self.folds.append(newFold)
             self.saveFolds()
         }

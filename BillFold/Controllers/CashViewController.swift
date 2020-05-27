@@ -7,32 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class CashViewController: UIViewController, UITextFieldDelegate {
 
-//    var cash = Cash()
-//    cash.total = 0.0
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//
-//    let newCash = Cash(context: self.context)
-//    newCash.total =
-//    newItem.done = false
-//    newItem.parentCategory = self.selectedCategory
-//    self.itemArray.append(newItem)
-//    self.saveItems()
-    
-    //MARK: -Outlets
-    @IBOutlet weak var moneyTextField: UITextField!
-    @IBOutlet weak var moneyLabel: UILabel!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var cash = [Cash]()
     
     //MARK: -Variables
+    @IBOutlet weak var moneyTextField: UITextField!
+    @IBOutlet weak var moneyLabel: UILabel!
     var amt: Int = 0
     var total: Double = 0.00
-//    var selectedFold : Fold? {
-//        didSet{
-//            loadItems()
-//        }
-//    }
+    var selectedFold : Fold? {
+        didSet{
+            loadCash()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +33,17 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         moneyTextField.placeholder = updateAmount()
         overrideUserInterfaceStyle = .light
         moneyTextField.keyboardType = UIKeyboardType.numberPad
-//        moneyLabel.text = "$0.00"
         //Listen for Keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        loadMoneyLabel()
+    }
+    
+    func loadMoneyLabel(){
+           cash[0].total -= total
+           moneyLabel.text = formatMoneyLabel(cash[0].total)
+           saveCash()
     }
     
     deinit {
@@ -55,7 +53,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    //MARK: -Methods or Functions
+    //MARK: -Show and Hide Keyboard
     @objc func keyboardWillChange(notification: Notification){
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
             return
@@ -67,6 +65,11 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //MARK: -Format input in textfield
     func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if let digit = Int(string) {
@@ -93,14 +96,12 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         return formatter.string(from: NSNumber(value: money))
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    //MARK: -Actions
+    //MARK: -Add, Subtract and reset total
     @IBAction func resetBalance(_ sender: UIButton) {
         total = 0
+        cash[0].total = 0.0
         moneyLabel.text = formatMoneyLabel(total)
+        saveCash()
     }
     
     @IBAction func addMoney(_ sender: UIButton) {
@@ -109,9 +110,12 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             if let money = moneyTextField.text{
                 let index = money.index(money.startIndex, offsetBy: 1)
                 if let currentMoney = Double(money.suffix(from: index)){
+                    total = cash[0].total
                     total += currentMoney
+                    cash[0].total = total
+                    moneyLabel?.text = formatMoneyLabel(cash[0].total)
+                    saveCash()
                 }
-                moneyLabel.text = formatMoneyLabel(total)
             }
             moneyTextField.text = ""
             amt = 0
@@ -124,41 +128,45 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             if let money = moneyTextField.text{
                 let index = money.index(money.startIndex, offsetBy: 1)
                 if let currentMoney = Double(money.suffix(from: index)){
+                    total = cash[0].total
                     total -= currentMoney
+                    cash[0].total = total
+                    moneyLabel?.text = formatMoneyLabel(cash[0].total)
+                    saveCash()
                 }
-                moneyLabel.text = formatMoneyLabel(total)
             }
             moneyTextField.text = ""
             amt = 0
         }
     }
     
-//    func saveItems(){
-//        do{
-//            try context.save()
-//        }catch{
-//            print("error saving context \(error)")
-//        }
-//        moneylabel.text = formatMoneyLabel(<#T##money: Double##Double#>)
-//    }
-//
-//    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
-//
-//        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-//
-//        if let additionalPredicate = predicate {
-//            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
-//        }else{
-//            request.predicate = categoryPredicate
-//        }
-//
-//        do{
-//            itemArray = try context.fetch(request)
-//        }catch{
-//            print("Error fetching data from context \(error)")
-//        }
-//        tableView.reloadData()
-//    }
+    //MARK: -Data Manipulation Methods
+    func saveCash(){
+        do{
+            try context.save()
+        }catch{
+            print("error saving context \(error)")
+        }
+    }
+    
+
+    func loadCash(with request: NSFetchRequest<Cash> = Cash.fetchRequest(), predicate: NSPredicate? = nil) {
+
+        let foldPredicate = NSPredicate(format: "parentFold.name MATCHES %@", selectedFold!.name!)
+
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [foldPredicate, additionalPredicate])
+        }else{
+            request.predicate = foldPredicate
+        }
+
+        do{
+            cash = try context.fetch(request)
+        }catch{
+            print("Error fetching data from context \(error)")
+        }
+        moneyLabel?.text = formatMoneyLabel(cash[0].total)
+    }
     
 }
 
