@@ -17,7 +17,7 @@ class FoldsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCategories()
+        loadFolds()
     }
     
     //MARK: - TableView Datasource Methods
@@ -53,8 +53,7 @@ class FoldsViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadCategories(){
-        let request : NSFetchRequest<Fold> = Fold.fetchRequest()
+    func loadFolds(with request: NSFetchRequest<Fold> = Fold.fetchRequest()){
         do{
             folds = try context.fetch(request)
         }catch{
@@ -80,6 +79,7 @@ class FoldsViewController: UITableViewController {
             // Error Handling
         }
     }
+    
     //MARK: - Add New Folds
     @IBAction func addFold(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add New Fold", message: "", preferredStyle: .alert)
@@ -98,5 +98,24 @@ class FoldsViewController: UITableViewController {
             self.textField.placeholder = "Add a new Fold"
         }
         present(alert, animated: true, completion: nil)
+    }
+}
+
+//MARK: - Search Bar Methods
+extension FoldsViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request : NSFetchRequest<Fold> = Fold.fetchRequest()
+        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        loadFolds(with: request)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0{
+            loadFolds()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
