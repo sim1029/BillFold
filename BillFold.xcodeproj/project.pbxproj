@@ -18,6 +18,7 @@
 		37747C5D247038D7003BE056 /* piggyBank.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5C247038D7003BE056 /* piggyBank.gif */; };
 		37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5E247039F6003BE056 /* piggyBank.jpg */; };
 		37C35A2924980CB800804CB3 /* Fold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C35A2824980CB800804CB3 /* Fold.swift */; };
+		37C35A4D2499405D00804CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C35A4C2499405D00804CB3 /* Assets.xcassets */; };
 		37FC8B15247840080009DDCD /* FoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC8B14247840080009DDCD /* FoldsViewController.swift */; };
 		665F004AC8AF8A35B545F702 /* Pods_BillFold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F7E1084844BE4D18FB6CAB /* Pods_BillFold.framework */; };
 		769213C21C3514E2F66D443D /* Pods_BillFold_BillFoldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBD7BDECBE1CB3EE4197E5F /* Pods_BillFold_BillFoldUITests.framework */; };
@@ -59,6 +60,7 @@
 		37747C5C247038D7003BE056 /* piggyBank.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = piggyBank.gif; path = Documentation/piggyBank.gif; sourceTree = SOURCE_ROOT; };
 		37747C5E247039F6003BE056 /* piggyBank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = piggyBank.jpg; path = Documentation/piggyBank.jpg; sourceTree = SOURCE_ROOT; };
 		37C35A2824980CB800804CB3 /* Fold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fold.swift; sourceTree = "<group>"; };
+		37C35A4C2499405D00804CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37FC8B14247840080009DDCD /* FoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldsViewController.swift; sourceTree = "<group>"; };
 		3BBD7BDECBE1CB3EE4197E5F /* Pods_BillFold_BillFoldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillFold_BillFoldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F7E1084844BE4D18FB6CAB /* Pods_BillFold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillFold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				37FC8B0F24783BEE0009DDCD /* Views */,
 				37FC8B0E24783BD80009DDCD /* Controllers */,
 				37747C3A2470355E003BE056 /* Info.plist */,
+				37C35A4C2499405D00804CB3 /* Assets.xcassets */,
 			);
 			path = BillFold;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				37747C5D247038D7003BE056 /* piggyBank.gif in Resources */,
 				37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */,
 				37747C342470355D003BE056 /* Main.storyboard in Resources */,
+				37C35A4D2499405D00804CB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +636,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 664JGWQ6V7;
 				INFOPLIST_FILE = BillFold/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,6 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 664JGWQ6V7;
 				INFOPLIST_FILE = BillFold/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -27,15 +27,23 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         moneyTextField.delegate = self
         moneyTextField.placeholder = updateAmount()
         overrideUserInterfaceStyle = .light
         moneyTextField.keyboardType = UIKeyboardType.numberPad
+        
         //Listen for Keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        navigationItem.largeTitleDisplayMode = .never
+        
+        // Remove separator style
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        customAppearance()
         loadCash()
     }
     
@@ -152,6 +160,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             moneyLabel?.text = formatMoneyLabel(total)
         }
     }
+    
     
 }
 

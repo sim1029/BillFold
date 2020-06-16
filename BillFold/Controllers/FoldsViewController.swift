@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
+import ChameleonFramework
 
 class FoldsViewController: UITableViewController {
     
@@ -18,6 +20,14 @@ class FoldsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 80
+        tableView.separatorStyle = .none
+        
+        // Custom back button
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "left-arrow")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "left-arrow")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+        
         loadFolds()
     }
     
@@ -30,6 +40,11 @@ class FoldsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldCell", for: indexPath)
         if let fold = folds?[indexPath.row]{
             cell.textLabel?.text = fold.name
+            if let color = UIColor(hexString: fold.color)?.darken(byPercentage:
+                CGFloat(indexPath.row) / CGFloat(folds!.count) / 1.35){
+                cell.backgroundColor = color
+                cell.textLabel?.textColor = UIColor.white
+            }
         }
         return cell
     }
@@ -60,9 +75,6 @@ class FoldsViewController: UITableViewController {
     
     func loadFolds(){
         folds = realm.objects(Fold.self)
-        for fold in folds! {
-            print(fold.total)
-        }
         tableView.reloadData()
     }
     
@@ -92,6 +104,7 @@ class FoldsViewController: UITableViewController {
             newFold.name = self.textField.text!
             newFold.dateCreated = Date()
             newFold.total = 0.0
+            newFold.color = UIColor.systemGreen.hexValue()
             self.saveFolds(fold: newFold)
         }
         alert.addAction(action)
@@ -106,16 +119,23 @@ class FoldsViewController: UITableViewController {
 //MARK: - Search Bar Methods
 extension FoldsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        folds = folds?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
-        tableView.reloadData()
+        performSearch(for: searchBar.text!)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0{
+        if searchBar.text?.count != 0{
+            performSearch(for: searchBar.text!)
+        } else {
             loadFolds()
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
         }
+    }
+    
+    func performSearch(for text: String){
+        folds = realm.objects(Fold.self)
+        folds = folds?.filter("name CONTAINS[cd] %@", text).sorted(byKeyPath: "dateCreated", ascending: true)
+        tableView.reloadData()
     }
 }

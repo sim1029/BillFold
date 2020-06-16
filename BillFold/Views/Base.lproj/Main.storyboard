@@ -93,7 +93,7 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                                                 <state key="normal" title="+">
-                                                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="titleColor" red="0.96862745098039216" green="0.81176470588235294" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="addMoney:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iY5-eI-ONC"/>
@@ -127,7 +127,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UCb-Ca-zvA"/>
+                    <navigationItem key="navigationItem" id="UCb-Ca-zvA">
+                        <barButtonItem key="backBarButtonItem" title=" " id="sFn-O2-YDx"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="moneyLabel" destination="5HR-Md-m5z" id="1ei-4o-ICX"/>
                         <outlet property="moneyTextField" destination="HsQ-fC-kZA" id="m0q-kC-wAi"/>
@@ -169,13 +171,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Folds" id="kF0-LQ-Tgp">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="u3q-0L-8Pj">
-                            <connections>
-                                <action selector="deleteAll:" destination="v6A-x9-o4L" id="Sqi-xZ-fji"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9zl-Ke-Woh">
-                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addFold:" destination="v6A-x9-o4L" id="4yj-Bi-kbh"/>
                             </connections>
@@ -194,13 +191,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Nd-bN-6cm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YeF-f6-Q7g">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrow.left" catalog="system" id="YeF-f6-Q7g">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -216,7 +213,9 @@
             <point key="canvasLocation" x="117.39130434782609" y="107.8125"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.96862745100000003" green="0.81176470590000005" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="piggyBank.gif" width="480" height="480"/>
     </resources>
 </document>
