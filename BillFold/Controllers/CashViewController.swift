@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class CashViewController: UIViewController, UITextFieldDelegate {
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var cash = [Cash]()
+    let realm = try! Realm()
     
     //MARK: -Variables
     @IBOutlet weak var moneyTextField: UITextField!
@@ -37,14 +36,9 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        loadMoneyLabel()
+        loadCash()
     }
     
-    func loadMoneyLabel(){
-           cash[0].total -= total
-           moneyLabel.text = formatMoneyLabel(cash[0].total)
-           saveCash()
-    }
     
     deinit {
         //Stop listening for keyboard events
@@ -98,10 +92,9 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: -Add, Subtract and reset total
     @IBAction func resetBalance(_ sender: UIButton) {
-        total = 0
-        cash[0].total = 0.0
+        total = 0.0
         moneyLabel.text = formatMoneyLabel(total)
-        saveCash()
+        saveCash(total)
     }
     
     @IBAction func addMoney(_ sender: UIButton) {
@@ -110,11 +103,9 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             if let money = moneyTextField.text{
                 let index = money.index(money.startIndex, offsetBy: 1)
                 if let currentMoney = Double(money.suffix(from: index)){
-                    total = cash[0].total
                     total += currentMoney
-                    cash[0].total = total
-                    moneyLabel?.text = formatMoneyLabel(cash[0].total)
-                    saveCash()
+                    moneyLabel?.text = formatMoneyLabel(total)
+                    saveCash(total)
                 }
             }
             moneyTextField.text = ""
@@ -128,11 +119,9 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             if let money = moneyTextField.text{
                 let index = money.index(money.startIndex, offsetBy: 1)
                 if let currentMoney = Double(money.suffix(from: index)){
-                    total = cash[0].total
                     total -= currentMoney
-                    cash[0].total = total
-                    moneyLabel?.text = formatMoneyLabel(cash[0].total)
-                    saveCash()
+                    moneyLabel?.text = formatMoneyLabel(total)
+                    saveCash(total)
                 }
             }
             moneyTextField.text = ""
@@ -141,31 +130,27 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: -Data Manipulation Methods
-    func saveCash(){
-        do{
-            try context.save()
-        }catch{
-            print("error saving context \(error)")
+    func saveCash(_ total: Double){
+        if let currentFold = self.selectedFold {
+            do{
+                try self.realm.write{
+                    currentFold.total = total
+                }
+            }catch{
+                print("error saving context \(error)")
+            }
         }
     }
     
-
-    func loadCash(with request: NSFetchRequest<Cash> = Cash.fetchRequest(), predicate: NSPredicate? = nil) {
-
-        let foldPredicate = NSPredicate(format: "parentFold.name MATCHES %@", selectedFold!.name!)
-
-        if let additionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [foldPredicate, additionalPredicate])
-        }else{
-            request.predicate = foldPredicate
+    func loadCash() {
+        if let currentFold = self.selectedFold{
+            total = currentFold.total
+            moneyLabel?.text = formatMoneyLabel(currentFold.total)
+            saveCash(currentFold.total)
         }
-
-        do{
-            cash = try context.fetch(request)
-        }catch{
-            print("Error fetching data from context \(error)")
+        else{
+            moneyLabel?.text = formatMoneyLabel(total)
         }
-        moneyLabel?.text = formatMoneyLabel(cash[0].total)
     }
     
 }

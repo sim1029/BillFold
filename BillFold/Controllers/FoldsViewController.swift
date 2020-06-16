@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class FoldsViewController: UITableViewController {
     
+    let realm = try! Realm()
+    
     var textField = UITextField()
-    var folds = [Fold]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var folds: Results<Fold>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +23,14 @@ class FoldsViewController: UITableViewController {
     
     //MARK: - TableView Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return folds.count
+        return folds?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldCell", for: indexPath)
-        cell.textLabel?.text = folds[indexPath.row].name
+        if let fold = folds?[indexPath.row]{
+            cell.textLabel?.text = fold.name
+        }
         return cell
     }
     
@@ -39,58 +42,57 @@ class FoldsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! CashViewController
         if let indexPath = tableView.indexPathForSelectedRow{
-            destinationVC.selectedFold = folds[indexPath.row]
+            destinationVC.selectedFold = folds?[indexPath.row]
         }
     }
     
     //MARK: - Data Manipulation Methods
-    func saveFolds(){
+    func saveFolds(fold: Fold){
         do{
-            try context.save()
+            try realm.write{
+                realm.add(fold)
+            }
         }catch{
             print("Error saving fold \(error)")
         }
         tableView.reloadData()
     }
     
-    func loadFolds(with request: NSFetchRequest<Fold> = Fold.fetchRequest()){
-        do{
-            folds = try context.fetch(request)
-        }catch{
-            print("Error loading categories \(error)")
+    func loadFolds(){
+        folds = realm.objects(Fold.self)
+        for fold in folds! {
+            print(fold.total)
         }
         tableView.reloadData()
     }
     
-    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
-        // Create Fetch Request
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Fold")
-        let fetchRequest1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Cash")
-
-        // Create Batch Delete Request
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
-
-        do {
-            try context.execute(batchDeleteRequest)
-            try context.execute(batchDeleteRequest1)
-            tableView.reloadData()
-        } catch {
-            // Error Handling
-        }
-    }
+//    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
+//        // Create Fetch Request
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Fold")
+//        let fetchRequest1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Cash")
+//
+//        // Create Batch Delete Request
+//        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
+//
+//        do {
+//            try context.execute(batchDeleteRequest)
+//            try context.execute(batchDeleteRequest1)
+//            tableView.reloadData()
+//        } catch {
+//            // Error Handling
+//        }
+//    }
     
     //MARK: - Add New Folds
     @IBAction func addFold(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add New Fold", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            let newFold = Fold(context: self.context)
-            let newCash = Cash(context: self.context)
-            newCash.total = 0.0
+            let newFold = Fold()
             newFold.name = self.textField.text!
-            newCash.parentFold = newFold
-            self.folds.append(newFold)
-            self.saveFolds()
+            newFold.dateCreated = Date()
+            newFold.total = 0.0
+            self.saveFolds(fold: newFold)
         }
         alert.addAction(action)
         alert.addTextField { (field) in
@@ -104,10 +106,8 @@ class FoldsViewController: UITableViewController {
 //MARK: - Search Bar Methods
 extension FoldsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let request : NSFetchRequest<Fold> = Fold.fetchRequest()
-        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        loadFolds(with: request)
+        folds = folds?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

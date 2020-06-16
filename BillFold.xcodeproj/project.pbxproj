@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,7 @@
 		37747C4F2470355F003BE056 /* BillFoldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C4E2470355F003BE056 /* BillFoldUITests.swift */; };
 		37747C5D247038D7003BE056 /* piggyBank.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5C247038D7003BE056 /* piggyBank.gif */; };
 		37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5E247039F6003BE056 /* piggyBank.jpg */; };
-		37FC8B1324783C680009DDCD /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37FC8B1124783C680009DDCD /* DataModel.xcdatamodeld */; };
+		37C35A2924980CB800804CB3 /* Fold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C35A2824980CB800804CB3 /* Fold.swift */; };
 		37FC8B15247840080009DDCD /* FoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC8B14247840080009DDCD /* FoldsViewController.swift */; };
 		665F004AC8AF8A35B545F702 /* Pods_BillFold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F7E1084844BE4D18FB6CAB /* Pods_BillFold.framework */; };
 		769213C21C3514E2F66D443D /* Pods_BillFold_BillFoldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBD7BDECBE1CB3EE4197E5F /* Pods_BillFold_BillFoldUITests.framework */; };
@@ -58,7 +58,7 @@
 		37747C502470355F003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37747C5C247038D7003BE056 /* piggyBank.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = piggyBank.gif; path = Documentation/piggyBank.gif; sourceTree = SOURCE_ROOT; };
 		37747C5E247039F6003BE056 /* piggyBank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = piggyBank.jpg; path = Documentation/piggyBank.jpg; sourceTree = SOURCE_ROOT; };
-		37FC8B1224783C680009DDCD /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		37C35A2824980CB800804CB3 /* Fold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fold.swift; sourceTree = "<group>"; };
 		37FC8B14247840080009DDCD /* FoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldsViewController.swift; sourceTree = "<group>"; };
 		3BBD7BDECBE1CB3EE4197E5F /* Pods_BillFold_BillFoldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillFold_BillFoldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F7E1084844BE4D18FB6CAB /* Pods_BillFold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillFold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,7 +183,7 @@
 		37FC8B1024783C0E0009DDCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				37FC8B1124783C680009DDCD /* DataModel.xcdatamodeld */,
+				37C35A2824980CB800804CB3 /* Fold.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,7 +198,6 @@
 				AF933EBE024176A01830827B /* Pods-BillFoldTests.debug.xcconfig */,
 				6B9F6EE13B7AB8B7CEB7BF55 /* Pods-BillFoldTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -453,10 +452,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				37747C312470355D003BE056 /* CashViewController.swift in Sources */,
-				37FC8B1324783C680009DDCD /* DataModel.xcdatamodeld in Sources */,
 				37747C2D2470355D003BE056 /* AppDelegate.swift in Sources */,
 				37FC8B15247840080009DDCD /* FoldsViewController.swift in Sources */,
 				37747C2F2470355D003BE056 /* SceneDelegate.swift in Sources */,
+				37C35A2924980CB800804CB3 /* Fold.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,19 +792,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		37FC8B1124783C680009DDCD /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				37FC8B1224783C680009DDCD /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 37FC8B1224783C680009DDCD /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 37747C212470355D003BE056 /* Project object */;
 }
