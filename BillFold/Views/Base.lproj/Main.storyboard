@@ -133,6 +133,7 @@
                     <connections>
                         <outlet property="moneyLabel" destination="5HR-Md-m5z" id="1ei-4o-ICX"/>
                         <outlet property="moneyTextField" destination="HsQ-fC-kZA" id="m0q-kC-wAi"/>
+                        <outlet property="navBar" destination="UCb-Ca-zvA" id="vaQ-Kj-Ftu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -156,7 +157,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoldCell" id="kyo-wG-RAx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoldCell" id="kyo-wG-RAx" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                 <rect key="frame" x="0.0" y="72" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kyo-wG-RAx" id="Mqt-TH-7Px">

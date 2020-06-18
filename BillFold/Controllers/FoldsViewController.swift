@@ -8,10 +8,9 @@
 
 import UIKit
 import RealmSwift
-import SwipeCellKit
 import ChameleonFramework
 
-class FoldsViewController: UITableViewController {
+class FoldsViewController: SwipeTableViewController {
     
     let realm = try! Realm()
     
@@ -20,7 +19,6 @@ class FoldsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80
         tableView.separatorStyle = .none
         
         // Custom back button
@@ -31,13 +29,20 @@ class FoldsViewController: UITableViewController {
         loadFolds()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        if let index = self.tableView.indexPathForSelectedRow{
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     //MARK: - TableView Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return folds?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let fold = folds?[indexPath.row]{
             cell.textLabel?.text = fold.name
             if let color = UIColor(hexString: fold.color)?.darken(byPercentage:
@@ -48,6 +53,7 @@ class FoldsViewController: UITableViewController {
         }
         return cell
     }
+    
     
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -78,23 +84,17 @@ class FoldsViewController: UITableViewController {
         tableView.reloadData()
     }
     
-//    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
-//        // Create Fetch Request
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Fold")
-//        let fetchRequest1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Cash")
-//
-//        // Create Batch Delete Request
-//        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
-//
-//        do {
-//            try context.execute(batchDeleteRequest)
-//            try context.execute(batchDeleteRequest1)
-//            tableView.reloadData()
-//        } catch {
-//            // Error Handling
-//        }
-//    }
+    override func updateModel(at indexPath: IndexPath) {
+        if let foldForDeletion = self.folds?[indexPath.row]{
+            do{
+                try self.realm.write{
+                    self.realm.delete(foldForDeletion)
+                }
+            }catch{
+                print("Error deleting category \(error)")
+            }
+        }
+    }
     
     //MARK: - Add New Folds
     @IBAction func addFold(_ sender: UIBarButtonItem) {

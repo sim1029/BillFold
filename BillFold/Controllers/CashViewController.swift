@@ -14,6 +14,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     let realm = try! Realm()
     
     //MARK: -Variables
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var moneyLabel: UILabel!
     var amt: Int = 0
@@ -23,6 +24,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             loadCash()
         }
     }
+    
     
     
     override func viewDidLoad() {
@@ -39,11 +41,8 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         navigationItem.largeTitleDisplayMode = .never
-        
-        // Remove separator style
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        customAppearance()
+        navBar.title = selectedFold!.name
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemYellow]
         loadCash()
     }
     
