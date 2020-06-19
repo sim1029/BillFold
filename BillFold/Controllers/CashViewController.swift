@@ -14,11 +14,12 @@ class CashViewController: UIViewController, UITextFieldDelegate {
 
     let realm = try! Realm()
     
-    //MARK: -Variables
+    // Variables
     @IBOutlet weak var piggyBankView: GIFImageView!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var moneyLabel: UILabel!
+    let commaString = ","
     var amt: Int = 0
     var total: Double = 0.00
     var selectedFold : Fold? {
@@ -27,37 +28,24 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+
         moneyTextField.delegate = self
         moneyTextField.placeholder = updateAmount()
         overrideUserInterfaceStyle = .light
         moneyTextField.keyboardType = UIKeyboardType.numberPad
         
-        //Listen for Keyboard events
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        navigationItem.largeTitleDisplayMode = .never
-        navBar.title = selectedFold!.name
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemYellow]
+        listenForKeyboardEvents()
         
         loadCash()
     }
-    
-    
+
     deinit {
-        //Stop listening for keyboard events
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        stopListeningForKeyboardEvents()
     }
     
-    //MARK: -Show and Hide Keyboard
+    //MARK: - Keyboard Methods
     @objc func keyboardWillChange(notification: Notification){
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
             return
@@ -73,16 +61,42 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    func listenForKeyboardEvents(){
+        //Listen for Keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        navigationItem.largeTitleDisplayMode = .never
+        navBar.title = selectedFold!.name
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemYellow]
+    }
+    
+    func stopListeningForKeyboardEvents() {
+        //Stop listening for keyboard events
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
     //MARK: -Format input in textfield
+    
     func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if let digit = Int(string) {
-            amt = amt * 10 + digit
-            moneyTextField.text = updateAmount()
-        }
-        if string == "" {
-            amt = amt/10
-            moneyTextField.text = updateAmount()
+        let maxLength = 15
+        let currentString: NSString = moneyTextField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        if newString.length <= maxLength {
+            if let digit = Int(string) {
+                amt = amt * 10 + digit
+                moneyTextField.text = updateAmount()
+            }
+            if string == "" {
+                amt = amt/10
+                moneyTextField.text = updateAmount()
+            }
+        } else {
+            moneyTextField.text = ""
+            amt = 0
         }
         return false
     }
@@ -115,9 +129,11 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             piggyBankView.animate(withGIFNamed: "piggyBankAdd.gif")
             self.view.endEditing(true)
             if let money = moneyTextField.text{
-                let index = money.index(money.startIndex, offsetBy: 1)
-                if let currentMoney = Double(money.suffix(from: index)){
+                let tempMoney = money.replacingOccurrences(of: ",", with: "")
+                let index = tempMoney.index(tempMoney.startIndex, offsetBy: 1)
+                if let currentMoney = Double(tempMoney.suffix(from: index)){
                     total += currentMoney
+                    print("The Current Money is \(currentMoney)")
                     moneyLabel?.text = formatMoneyLabel(total)
                     saveCash(total)
                 }
@@ -133,8 +149,9 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             piggyBankView.animate(withGIFNamed: "piggyBankSub.gif")
             self.view.endEditing(true)
             if let money = moneyTextField.text{
-                let index = money.index(money.startIndex, offsetBy: 1)
-                if let currentMoney = Double(money.suffix(from: index)){
+                let tempMoney = money.replacingOccurrences(of: ",", with: "")
+                let index = tempMoney.index(tempMoney.startIndex, offsetBy: 1)
+                if let currentMoney = Double(tempMoney.suffix(from: index)){
                     total -= currentMoney
                     moneyLabel?.text = formatMoneyLabel(total)
                     saveCash(total)
@@ -168,6 +185,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             moneyLabel?.text = formatMoneyLabel(total)
         }
     }
+    
 
 }
 

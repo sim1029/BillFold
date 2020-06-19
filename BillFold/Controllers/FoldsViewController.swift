@@ -46,7 +46,7 @@ class FoldsViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let fold = folds?[indexPath.row]{
             cell.textLabel?.text = fold.name
-            cell.detailTextLabel?.text = "$\(fold.total)"
+            cell.detailTextLabel?.text = formatMoneyLabel(fold.total)!
             if let color = UIColor(hexString: fold.color)?.darken(byPercentage:
                 CGFloat(indexPath.row) / CGFloat(folds!.count) / 1.35){
                 cell.backgroundColor = color
@@ -140,5 +140,11 @@ extension FoldsViewController: UISearchBarDelegate {
         folds = realm.objects(Fold.self)
         folds = folds?.filter("name CONTAINS[cd] %@", text).sorted(byKeyPath: "dateCreated", ascending: true)
         tableView.reloadData()
+    }
+    
+    func formatMoneyLabel(_ money: Double) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        return formatter.string(from: NSNumber(value: money))
     }
 }
