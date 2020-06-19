@@ -34,6 +34,7 @@ class FoldsViewController: SwipeTableViewController {
         if let index = self.tableView.indexPathForSelectedRow{
             self.tableView.deselectRow(at: index, animated: true)
         }
+        tableView.reloadData()
     }
     
     //MARK: - TableView Datasource Methods
@@ -45,10 +46,12 @@ class FoldsViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let fold = folds?[indexPath.row]{
             cell.textLabel?.text = fold.name
+            cell.detailTextLabel?.text = "$\(fold.total)"
             if let color = UIColor(hexString: fold.color)?.darken(byPercentage:
                 CGFloat(indexPath.row) / CGFloat(folds!.count) / 1.35){
                 cell.backgroundColor = color
                 cell.textLabel?.textColor = UIColor.white
+                cell.detailTextLabel?.textColor = UIColor.white
             }
         }
         return cell
