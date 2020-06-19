@@ -20,6 +20,8 @@
 		37C35A2924980CB800804CB3 /* Fold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C35A2824980CB800804CB3 /* Fold.swift */; };
 		37C35A4D2499405D00804CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C35A4C2499405D00804CB3 /* Assets.xcassets */; };
 		37C35A4F249AE87D00804CB3 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C35A4E249AE87D00804CB3 /* SwipeTableViewController.swift */; };
+		37C35A51249BF43900804CB3 /* piggyBankAdd.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37C35A50249BF43800804CB3 /* piggyBankAdd.gif */; };
+		37C35A53249C5BB100804CB3 /* piggyBankSub.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37C35A52249C5BB100804CB3 /* piggyBankSub.gif */; };
 		37FC8B15247840080009DDCD /* FoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC8B14247840080009DDCD /* FoldsViewController.swift */; };
 		665F004AC8AF8A35B545F702 /* Pods_BillFold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F7E1084844BE4D18FB6CAB /* Pods_BillFold.framework */; };
 		769213C21C3514E2F66D443D /* Pods_BillFold_BillFoldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBD7BDECBE1CB3EE4197E5F /* Pods_BillFold_BillFoldUITests.framework */; };
@@ -63,6 +65,8 @@
 		37C35A2824980CB800804CB3 /* Fold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fold.swift; sourceTree = "<group>"; };
 		37C35A4C2499405D00804CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37C35A4E249AE87D00804CB3 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		37C35A50249BF43800804CB3 /* piggyBankAdd.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = piggyBankAdd.gif; sourceTree = "<group>"; };
+		37C35A52249C5BB100804CB3 /* piggyBankSub.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = piggyBankSub.gif; sourceTree = "<group>"; };
 		37FC8B14247840080009DDCD /* FoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldsViewController.swift; sourceTree = "<group>"; };
 		3BBD7BDECBE1CB3EE4197E5F /* Pods_BillFold_BillFoldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillFold_BillFoldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F7E1084844BE4D18FB6CAB /* Pods_BillFold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BillFold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,8 +165,10 @@
 		37747C60247039FC003BE056 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				37C35A50249BF43800804CB3 /* piggyBankAdd.gif */,
 				37747C5C247038D7003BE056 /* piggyBank.gif */,
 				37747C5E247039F6003BE056 /* piggyBank.jpg */,
+				37C35A52249C5BB100804CB3 /* piggyBankSub.gif */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -327,9 +333,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				37747C392470355E003BE056 /* LaunchScreen.storyboard in Resources */,
+				37C35A51249BF43900804CB3 /* piggyBankAdd.gif in Resources */,
 				37747C5D247038D7003BE056 /* piggyBank.gif in Resources */,
 				37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */,
 				37747C342470355D003BE056 /* Main.storyboard in Resources */,
+				37C35A53249C5BB100804CB3 /* piggyBankSub.gif in Resources */,
 				37C35A4D2499405D00804CB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

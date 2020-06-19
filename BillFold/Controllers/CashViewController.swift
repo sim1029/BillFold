@@ -8,12 +8,14 @@
 
 import UIKit
 import RealmSwift
+import Gifu
 
 class CashViewController: UIViewController, UITextFieldDelegate {
 
     let realm = try! Realm()
     
     //MARK: -Variables
+    @IBOutlet weak var piggyBankView: GIFImageView!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var moneyLabel: UILabel!
@@ -43,6 +45,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         navigationItem.largeTitleDisplayMode = .never
         navBar.title = selectedFold!.name
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemYellow]
+        
         loadCash()
     }
     
@@ -98,7 +101,9 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: -Add, Subtract and reset total
-    @IBAction func resetBalance(_ sender: UIButton) {
+    @IBAction func resetBalance(_ sender: UIBarButtonItem) {
+        piggyBankView.image = UIImage(named: "piggyBankSub.gif")
+        piggyBankView.animate(withGIFNamed: "piggyBankSub.gif")
         total = 0.0
         moneyLabel.text = formatMoneyLabel(total)
         saveCash(total)
@@ -106,6 +111,8 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addMoney(_ sender: UIButton) {
         if moneyTextField.text != "" {
+            piggyBankView.image = UIImage(named: "piggyBankAdd.gif")
+            piggyBankView.animate(withGIFNamed: "piggyBankAdd.gif")
             self.view.endEditing(true)
             if let money = moneyTextField.text{
                 let index = money.index(money.startIndex, offsetBy: 1)
@@ -122,6 +129,8 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func subtractMoney(_ sender: UIButton) {
         if moneyTextField.text != "" {
+            piggyBankView.image = UIImage(named: "piggyBankSub.gif")
+            piggyBankView.animate(withGIFNamed: "piggyBankSub.gif")
             self.view.endEditing(true)
             if let money = moneyTextField.text{
                 let index = money.index(money.startIndex, offsetBy: 1)
@@ -159,7 +168,7 @@ class CashViewController: UIViewController, UITextFieldDelegate {
             moneyLabel?.text = formatMoneyLabel(total)
         }
     }
-    
-    
+
 }
+
 
