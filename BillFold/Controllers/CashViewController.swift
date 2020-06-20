@@ -9,9 +9,12 @@
 import UIKit
 import RealmSwift
 import Gifu
+import AVFoundation
 
 class CashViewController: UIViewController, UITextFieldDelegate {
 
+    var player: AVAudioPlayer!
+    
     let realm = try! Realm()
     
     // Variables
@@ -116,8 +119,8 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: -Add, Subtract and reset total
     @IBAction func resetBalance(_ sender: UIBarButtonItem) {
-        piggyBankView.image = UIImage(named: "piggyBankSub.gif")
-        piggyBankView.animate(withGIFNamed: "piggyBankSub.gif")
+        playSound()
+        piggyBankView.animate(withGIFNamed: "piggyBankSub.gif", loopCount: 6)
         total = 0.0
         moneyLabel.text = formatMoneyLabel(total)
         saveCash(total)
@@ -125,8 +128,8 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addMoney(_ sender: UIButton) {
         if moneyTextField.text != "" {
-            piggyBankView.image = UIImage(named: "piggyBankAdd.gif")
-            piggyBankView.animate(withGIFNamed: "piggyBankAdd.gif")
+            playSound()
+            piggyBankView.animate(withGIFNamed: "piggyBankAdd.gif", loopCount: 1)
             self.view.endEditing(true)
             if let money = moneyTextField.text{
                 let tempMoney = money.replacingOccurrences(of: ",", with: "")
@@ -145,8 +148,8 @@ class CashViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func subtractMoney(_ sender: UIButton) {
         if moneyTextField.text != "" {
-            piggyBankView.image = UIImage(named: "piggyBankSub.gif")
-            piggyBankView.animate(withGIFNamed: "piggyBankSub.gif")
+            playSound()
+            piggyBankView.animate(withGIFNamed: "piggyBankSub.gif", loopCount: 6)
             self.view.endEditing(true)
             if let money = moneyTextField.text{
                 let tempMoney = money.replacingOccurrences(of: ",", with: "")
@@ -184,6 +187,13 @@ class CashViewController: UIViewController, UITextFieldDelegate {
         else{
             moneyLabel?.text = formatMoneyLabel(total)
         }
+    }
+    
+    func playSound() {
+        let url = Bundle.main.url(forResource: "coins", withExtension: "wav")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+                
     }
     
 

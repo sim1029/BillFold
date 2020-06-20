@@ -17,6 +17,7 @@
 		37747C4F2470355F003BE056 /* BillFoldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37747C4E2470355F003BE056 /* BillFoldUITests.swift */; };
 		37747C5D247038D7003BE056 /* piggyBank.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5C247038D7003BE056 /* piggyBank.gif */; };
 		37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37747C5E247039F6003BE056 /* piggyBank.jpg */; };
+		378883D3249E996200BF0931 /* coins.wav in Resources */ = {isa = PBXBuildFile; fileRef = 378883D2249E996200BF0931 /* coins.wav */; };
 		37C35A2924980CB800804CB3 /* Fold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C35A2824980CB800804CB3 /* Fold.swift */; };
 		37C35A4D2499405D00804CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37C35A4C2499405D00804CB3 /* Assets.xcassets */; };
 		37C35A4F249AE87D00804CB3 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C35A4E249AE87D00804CB3 /* SwipeTableViewController.swift */; };
@@ -62,6 +63,7 @@
 		37747C502470355F003BE056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37747C5C247038D7003BE056 /* piggyBank.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = piggyBank.gif; path = Documentation/piggyBank.gif; sourceTree = SOURCE_ROOT; };
 		37747C5E247039F6003BE056 /* piggyBank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = piggyBank.jpg; path = Documentation/piggyBank.jpg; sourceTree = SOURCE_ROOT; };
+		378883D2249E996200BF0931 /* coins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coins.wav; sourceTree = "<group>"; };
 		37C35A2824980CB800804CB3 /* Fold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fold.swift; sourceTree = "<group>"; };
 		37C35A4C2499405D00804CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37C35A4E249AE87D00804CB3 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
@@ -132,12 +134,13 @@
 			isa = PBXGroup;
 			children = (
 				372C29742473143F0065476D /* BillFold.entitlements */,
-				37747C60247039FC003BE056 /* Images */,
 				37747C2C2470355D003BE056 /* AppDelegate.swift */,
 				37747C2E2470355D003BE056 /* SceneDelegate.swift */,
 				37FC8B1024783C0E0009DDCD /* Model */,
 				37FC8B0F24783BEE0009DDCD /* Views */,
 				37FC8B0E24783BD80009DDCD /* Controllers */,
+				378883D4249E999100BF0931 /* Sounds */,
+				37747C60247039FC003BE056 /* Images */,
 				37747C3A2470355E003BE056 /* Info.plist */,
 				37C35A4C2499405D00804CB3 /* Assets.xcassets */,
 			);
@@ -171,6 +174,14 @@
 				37C35A52249C5BB100804CB3 /* piggyBankSub.gif */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		378883D4249E999100BF0931 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				378883D2249E996200BF0931 /* coins.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		37FC8B0E24783BD80009DDCD /* Controllers */ = {
@@ -333,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37747C392470355E003BE056 /* LaunchScreen.storyboard in Resources */,
+				378883D3249E996200BF0931 /* coins.wav in Resources */,
 				37C35A51249BF43900804CB3 /* piggyBankAdd.gif in Resources */,
 				37747C5D247038D7003BE056 /* piggyBank.gif in Resources */,
 				37747C5F247039F6003BE056 /* piggyBank.jpg in Resources */,
